@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background:#fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            text-align: left;
+            margin: 8px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #0056b3, #004080);
+        }
+
+        .small-text {
+            font-size: 13px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .small-text a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h1>Create Account</h1>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm password">
+
+        <button id="signup">Sign Up</button>
+        <p class="small-text">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signup').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (!username || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            alert('Sign-up successful!');
+            window.location.href = 'signup-success.html';
+        });
+    </script>
+</body>
+</html>
